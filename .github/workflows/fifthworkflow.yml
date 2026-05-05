@@ -12,7 +12,7 @@ jobs:
         run: echo "Running main task..."
 
       - name: Step 2 - Force failure (for testing)
-        run: exit 1
+        
 
       - name: Step 3 - Runs only if success
         if: success()
