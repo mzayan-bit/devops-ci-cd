@@ -1,0 +1,23 @@
+name: Fifth workflow (Conditions)
+
+on:
+  workflow_dispatch
+
+jobs:
+  condition-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Step 1 - Run something
+        run: echo "Running main task..."
+
+      - name: Step 2 - Force failure (for testing)
+        run: exit 1
+
+      - name: Step 3 - Runs only if success
+        if: success()
+        run: echo "Everything passed!"
+
+      - name: Step 4 - Runs only if failure
+        if: failure()
+        run: echo "Something failed!"
